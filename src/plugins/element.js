@@ -7,7 +7,7 @@ import {Button,Form,FormItem,Input,Message,
     Container,Header,Aside,Main,Menu,Submenu,MenuItemGroup,
     MenuItem,breadcrumb,BreadcrumbItem,card,row,col,table,
     TableColumn,Switch,tooltip,pagination,dialog,MessageBox,
-    Tag,tree,select,option} from 'element-ui'
+    Tag,tree,select,option,cascader} from 'element-ui'
 
 
 
@@ -40,6 +40,7 @@ Vue.use(Tag)
 Vue.use(tree)
 Vue.use(select)
 Vue.use(option)
+Vue.use(cascader)
 
 
 

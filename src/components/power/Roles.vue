@@ -223,6 +223,7 @@ export default {
         },
         // 点击编辑按钮后查询到该角色id和弹出对话框
         async showEditRoles(id){
+            console.log(id);
             const {data:res} = await this.$http.get('roles/'+id)
             if(res.meta.status!==200) return this.$message.error('查询用户失败')
             this.editRoles = res.data
@@ -322,27 +323,6 @@ export default {
             this.getRolesList()
             this.setRightDialogVisible=false
         }
-    //     async allotRights() {
-    //   const keys = [
-    //     ...this.$refs.treeRef.getCheckedKeys(),
-    //     ...this.$refs.treeRef.getHalfCheckedKeys()
-    //   ]
-
-    //   const idStr = keys.join(',')
-
-    //   const { data: res } = await this.$http.post(
-    //     `roles/${this.roleId}/rights`,
-    //     { rids: idStr }
-    //   )
-
-    //   if (res.meta.status !== 200) {
-    //     return this.$message.error('分配权限失败！')
-    //   }
-
-    //   this.$message.success('分配权限成功！')
-    //   this.getRolesList()
-    //   this.setRightDialogVisible = false
-    // }
     },
 }
 </script>
