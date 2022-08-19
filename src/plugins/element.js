@@ -7,7 +7,7 @@ import {Button,Form,FormItem,Input,Message,
     Container,Header,Aside,Main,Menu,Submenu,MenuItemGroup,
     MenuItem,breadcrumb,BreadcrumbItem,card,row,col,table,
     TableColumn,Switch,tooltip,pagination,dialog,MessageBox,
-    Tag,tree,select,option,cascader} from 'element-ui'
+    Tag,tree,select,option,cascader,alert,tabs,TabPane} from 'element-ui'
 
 
 
@@ -41,6 +41,11 @@ Vue.use(tree)
 Vue.use(select)
 Vue.use(option)
 Vue.use(cascader)
+Vue.use(alert)
+Vue.use(tabs)
+Vue.use(TabPane)
+
+
 
 
 
