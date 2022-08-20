@@ -53,9 +53,6 @@
                     layout="total, sizes, prev, pager, next, jumper"
                     :total="total">
                 </el-pagination>
-
-
-            <!-- 分页区域 -->
         </el-card>
 
         <!-- 添加分类的对话框 -->
@@ -215,7 +212,7 @@ export default {
         },
          // 选择项发生变化触发
         parentCateChange() {
-            console.log(this.selectedKeys)
+            // console.log(this.selectedKeys)
             // 如果 selectedKeys 数组中的 length 大于0，证明选中的父级分类
             // 反之，就说明没有选中任何父级分类
             if (this.selectedKeys.length > 0) {
@@ -243,7 +240,7 @@ export default {
                 return this.$message.error('获取父级分类数据失败！')
             }
 
-            console.log(res.data)
+            // console.log(res.data)
             this.parentCateList = res.data
         },
         // 点击确定按钮
@@ -272,7 +269,7 @@ export default {
             const{data:res} = await this.$http.get('categories/'+id.cat_id)
             if(res.meta.status!==200) return this.$message.error('查询分类失败')
             this.editCate = res.data
-            console.log(this.editCate);
+            // console.log(this.editCate);
 
             this.editCateDialog=true
         },

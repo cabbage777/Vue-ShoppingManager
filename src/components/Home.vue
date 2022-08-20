@@ -59,6 +59,7 @@
         </el-aside>
         <!-- 右侧主题区域 -->
         <el-main>
+            <!-- 右侧组件存在在这 -->
             <router-view></router-view>
         </el-main>
         </el-container>
