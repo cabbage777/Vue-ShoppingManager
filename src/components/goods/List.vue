@@ -165,7 +165,7 @@ export default {
                 const {data:res}=await this.$http.put(`goods/${this.editForm.goods_id}`,
                 {goods_name:this.editForm.goods_name,goods_price:this.editForm.goods_price,
                     goods_number:this.editForm.goods_number,goods_weight:this.editForm.goods_weight,
-                     goods_cat: this.editForm.goods_cat,}
+                    goods_cat: this.editForm.goods_cat,}
                 
                 )
                 if(res.meta.status!==200){
