@@ -8,10 +8,7 @@ import {Button,Form,FormItem,Input,Message,
     MenuItem,breadcrumb,BreadcrumbItem,card,row,col,table,
     TableColumn,Switch,tooltip,pagination,dialog,MessageBox,
     Tag,tree,select,option,cascader,alert,tabs,TabPane,steps,
-    step,checkbox,CheckboxGroup,upload} from 'element-ui'
-
-
-
+    step,checkbox,CheckboxGroup,upload,Timeline,TimelineItem} from 'element-ui'
 
 
 Vue.use(Button)
@@ -50,6 +47,8 @@ Vue.use(steps)
 Vue.use(checkbox)
 Vue.use(CheckboxGroup)
 Vue.use(upload)
+Vue.use(Timeline)
+Vue.use(TimelineItem)
 
 
 

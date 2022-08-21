@@ -32,7 +32,7 @@
                 </el-table-column>
                 <el-table-column label="操作"  width="130px">
                     <template slot-scope="scope">
-                        <el-button type="primary" icon="el-icon-edit" size="mini"></el-button>
+                        <el-button type="primary" icon="el-icon-edit" size="mini" @click="editById(scope.row.goods_id)"></el-button>
                         <el-button type="danger" icon="el-icon-delete" size="mini" @click="removeById(scope.row.goods_id)"></el-button>
                     </template>
                 </el-table-column>
@@ -49,6 +49,31 @@
                     background>
                 </el-pagination>
         </el-card>
+
+        <!-- 编辑对话框 -->
+        <el-dialog
+            title="修改商品信息"
+            :visible.sync="editdialogVisible"
+            width="50%">
+            <el-form :model="editForm" :rules="editFormRules" ref="editFormRef" label-width="100px">
+                <el-form-item label="商品名称">
+                    <el-input v-model="editForm.goods_name"></el-input>
+                </el-form-item>
+                <el-form-item label="商品价格">
+                    <el-input v-model="editForm.goods_price" type="number"></el-input>
+                </el-form-item>
+                <el-form-item label="商品数量">
+                    <el-input v-model="editForm.goods_number" type="number"></el-input>
+                </el-form-item>
+                <el-form-item label="商品质量">
+                    <el-input v-model="editForm.goods_weight" type="number"></el-input>
+                </el-form-item>
+            </el-form>
+            <span slot="footer" class="dialog-footer">
+                <el-button @click="editdialogVisible = false">取 消</el-button>
+                <el-button type="primary" @click="editGoods">确 定</el-button>
+            </span>
+        </el-dialog>
     </div>
 </template>
 
@@ -66,6 +91,26 @@ export default {
             goodslist:[],
             // 总数据条数
             total:0,
+            // 编辑对话框的显示
+            editdialogVisible:false,
+            // 修改商品数据
+            editForm:{},
+            // 编辑商品的规则
+            editFormRules:{
+                goods_name:[
+                    { required: true, message: '请输入商品名称', trigger: 'blur' }
+                ],
+                goods_price:[
+                    { required: true, message: '请输入商品价格', trigger: 'blur' }
+                ],
+                goods_number:[
+                    { required: true, message: '请输入商品价格', trigger: 'blur' }
+                ],
+                goods_weight:[
+                    { required: true, message: '请输入商品质量', trigger: 'blur' }
+                ]
+            }
+            
         }
     },
     created() {
@@ -104,6 +149,35 @@ export default {
         // 跳转添加页面
         goAddpage(){
             this.$router.push('/goods/add')
+        },
+        // 编辑
+        async editById(id){
+            const{data:res} =await this.$http.get('goods/'+id)
+            if(res.meta.status!==200) return this.$message.error('查询商品失败')
+            this.editForm=res.data
+            console.log(this.editForm);
+            this.editdialogVisible=true
+        },
+        // 点击编辑的确定按钮
+        editGoods(){
+            this.$refs.editFormRef.validate(async valid=>{
+                if(!valid) return
+                const {data:res}=await this.$http.put(`goods/${this.editForm.goods_id}`,
+                {goods_name:this.editForm.goods_name,goods_price:this.editForm.goods_price,
+                    goods_number:this.editForm.goods_number,goods_weight:this.editForm.goods_weight,
+                     goods_cat: this.editForm.goods_cat,}
+                
+                )
+                if(res.meta.status!==200){
+                return this.$message.error('编辑商品失败')
+            }
+                // 关闭对话框
+                this.editdialogVisible=false
+                // 刷新数据列表
+                this.getGoodsList()
+                // 提示修改成功
+                return this.$message.success('修改商品成功') 
+        })
         }
     },
 }
