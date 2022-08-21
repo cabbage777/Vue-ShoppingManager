@@ -108,7 +108,7 @@ export default {
             queryInfo:{
                 query:'',
                 pagenum:1,
-                pagesize:10,
+                pagesize:5,
             },
             total:0,
             orderList:[],
@@ -237,4 +237,13 @@ export default {
 .el-cascader{
     width: 100%;
 }
+ /deep/  .el-breadcrumb__inner
+      {
+        color: #FFFFFF !important;	
+        font-weight:600 ;
+    }
+   /deep/ .el-breadcrumb__inner.is-link{
+       font-size: 20px;
+        font-weight:1100 ;
+   }
 </style>

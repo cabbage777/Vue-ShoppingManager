@@ -60,7 +60,7 @@
                     @current-change="handleCurrentChange"
                     :current-page="queryInfo.pagenum"
                     :page-size="queryInfo.pagesize"
-                     :page-sizes="[1,2,5,10]"
+                    :page-sizes="[4,10,15]"
                     layout="total, sizes, prev, pager, next, jumper"
                     :total="total">
                 </el-pagination>
@@ -165,7 +165,7 @@ export default {
             queryInfo:{
                 query:'',
                 pagenum:1,//当前的页数
-                pagesize:2
+                pagesize:4
             },
             userlist:[],
             total:0,
@@ -360,3 +360,16 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+ /deep/  .el-breadcrumb__inner
+      {
+        color: #FFFFFF !important;	
+        font-weight:600 ;
+    }
+   /deep/ .el-breadcrumb__inner.is-link{
+       font-size: 20px;
+        font-weight:1100 ;
+
+   }
+</style>

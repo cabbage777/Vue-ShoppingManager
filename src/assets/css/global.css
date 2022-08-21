@@ -3,14 +3,16 @@ html,body,#app{
     height: 100%;
     margin: 0;
     padding: 0;
-    min-height: 1366px;
+    /* min-height: 1366px; */
 }
 .el-breadcrumb{
     margin-bottom: 15px;
-    font-size: 16px;
+    font-size: 18px;
 }
+
 .el-card{
     box-shadow: 0 1px 1px rgb(0, 0, 0.15);
+    opacity: 0.9;
 }
 .el-table{
     margin-top: 15px;
@@ -31,3 +33,18 @@ html,body,#app{
   .ql-editor{
       min-height: 300px;
   }
+  main.el-main {
+      background-color: black;
+  }
+  .el-container{
+    height: 100px;
+  }
+  /deep/  .el-breadcrumb__inner
+      {
+        color: #FFFFFF !important;	
+        font-weight:600 ;
+    }
+   /deep/ .el-breadcrumb__inner.is-link{
+       font-size: 20px;
+        font-weight:1100 ;
+   }

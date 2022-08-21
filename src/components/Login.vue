@@ -3,7 +3,7 @@
         <div class='login_box'>
             <!-- //头像区域 -->
             <div class='avatar_box'>
-                <img src="../assets/logo.png" alt="">
+                <img src="../assets/maoleidatou.png" alt="">
             </div>
             <!-- //登录表单区域 -->
             <el-form 
@@ -12,6 +12,7 @@
             :model="loginForm" 
             :rules="loginFormRules"
             ref='loginFormRef'
+            border
             >
                 <!-- 用户名 -->
                 <el-form-item prop="username" >
@@ -78,14 +79,22 @@ export default {
 </script>
 
 <style scoped>
+
     .login_container{
         background-color: #2b4b6b;
-        height: 100%;
+        height: 721px;
+        overflow: hidden; 
+        background-image: url('../assets/homeback.png');
+        background-size: 100%;
+        overflow: hidden;
+
     }
     .login_box{
         width: 450px;
         height: 300px;
         background-color: #fff;
+        background-image: url('../assets/loginimg.jpeg');
+        background-size: 100%;
         border-radius:20px ;
         position:absolute ;
         left: 50%;
@@ -97,19 +106,20 @@ export default {
         width: 130px;
         border:1px solid #eee;
         border-radius: 50%;
-        padding: 10px;
+        /* padding: 10px; */
         box-shadow:  0 0 10px #ddd;
         position: absolute;
         left: 50%;
         transform: translate(-50%,-50%);
         background-color: #fff;
-        img{
+        
+    }
+    img{
             width: 100%;
             height: 100%;
             border-radius: 50%;
             background-color: #eee;
         }
-    }
     .login_form{
         position: absolute;
         bottom: 0;
@@ -121,4 +131,5 @@ export default {
         display: flex;
         justify-content:flex-end;
     }
+   
 </style>

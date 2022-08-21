@@ -17,9 +17,9 @@
                 |||
             </div>
             <el-menu
-                background-color="#333744"
-                text-color="#fff"
-                active-text-color="#409EFF"
+                background-color="#DCDCDC"
+                text-color="#000000"
+                active-text-color="#1E90FF"
                 :unique-opened='true'
                 :collapse='isCollapse'
                 :collapse-transition='false'
@@ -122,7 +122,9 @@ export default {
         height: 60px;
     }
     .el-header {
-        background-color: #373d41;
+        /* background-color: #373d41; */
+        background-image: url("../assets/headerback.webp");
+        background-size: 100%;
         display: flex;
         justify-content: space-between;
         padding-left: 0;
@@ -140,14 +142,28 @@ export default {
             margin-bottom: 0;
     } 
     .el-aside{
-        background-color: #333744;
+        background-image: url('../assets/maolei.jpg');
+        background-size: 100% 50%;
+        position: relative;
     }
     .el-main{
-        background-color: #eaedf1;
+        background-image: url('../assets/back.jpg');
+        background-size: 100%;
+
     }
     .el-menu{
         border: none;
+        opacity: 0.9;   
+    }  
+    /deep/.el-submenu__title{
+        height: 25%;
+        line-height: 96px;
+        font-size: 20px;
+        font-weight: 900;
     }
+   /deep/ .el-menu-item{
+        font-weight: 900;
+   }
     .iconfont{
         margin-right: 10px;
     }

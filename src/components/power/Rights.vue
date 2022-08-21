@@ -49,5 +49,13 @@ export default {
 </script>
 
 <style scoped>
-
+  /deep/  .el-breadcrumb__inner
+      {
+        color: #FFFFFF !important;	
+        font-weight:600 ;
+    }
+   /deep/ .el-breadcrumb__inner.is-link{
+       font-size: 20px;
+        font-weight:1100 ;
+   }
 </style>

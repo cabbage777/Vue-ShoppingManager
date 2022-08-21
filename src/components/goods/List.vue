@@ -43,7 +43,7 @@
                     @current-change="handleCurrentChange"
                     :current-page="queryInfo.pagenum"
                     :page-size="queryInfo.pagesize"
-                     :page-sizes="[5,10,15,20]"
+                     :page-sizes="[7,12,15,20]"
                     layout="total, sizes, prev, pager, next, jumper"
                     :total="total"
                     background>
@@ -85,7 +85,7 @@ export default {
             queryInfo:{
                 query:'',
                 pagenum:1,
-                pagesize:10
+                pagesize:7
             },
             // 商品列表
             goodslist:[],
@@ -184,5 +184,13 @@ export default {
 </script>
 
 <style scoped>
-
+    /deep/  .el-breadcrumb__inner
+      {
+        color: #FFFFFF !important;	
+        font-weight:600 ;
+    }
+   /deep/ .el-breadcrumb__inner.is-link{
+       font-size: 20px;
+        font-weight:1100 ;
+   }
 </style>
